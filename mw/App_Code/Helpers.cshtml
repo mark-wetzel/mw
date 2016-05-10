@@ -1,0 +1,15 @@
+﻿@using mw.App_Code
+
+    @helper PageTitle(string pageTitle)
+    {
+string siteName = Config.SiteName;
+
+if (string.IsNullOrEmpty(pageTitle))
+{
+        @siteName
+}
+else
+{
+        <text>@pageTitle | @siteName</text>
+}
+}
