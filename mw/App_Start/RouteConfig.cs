@@ -15,6 +15,12 @@ namespace mw
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
+            name: "Home",
+            url: "",
+            defaults: new { controller = "Entries", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "About",
                 url: "about",
                 defaults: new { controller = "Home", action = "About" }
@@ -25,12 +31,6 @@ namespace mw
                 url: "contact",
                 defaults: new { controller = "Home", action = "Contact" }
             );
-
-            //routes.MapRoute(
-            //   name: "About",
-            //   url: "about",
-            //   defaults: new { controller = "Home", action = "About" }
-            //);
 
             routes.MapRoute(
                 name: "Default",
