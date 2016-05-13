@@ -4,15 +4,19 @@
     ViewBag.Title = "Blog";
 }
 
-@foreach (var entry in Model)
-{
-    <article>
-        <header>
-            <h1>@entry.Title</h1>
-        </header>
-        <div>
-            @entry.Body
-        </div>
-        <footer></footer>
-    </article>
-}
+<div class="row">
+    <div class="col-md-8">
+        @foreach (var entry in Model)
+        {
+            <article>
+                <header>
+                    <h1>@Html.ActionLink(entry.Title, "Details", new { id = entry.Id })</h1>
+                </header>
+                <div>
+                    @entry.Body
+                </div>
+                <footer></footer>
+            </article>
+        }
+    </div>
+</div>
