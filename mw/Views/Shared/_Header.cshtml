@@ -1,7 +1,19 @@
-﻿<h1 class="text-center">@Html.RouteLink("Home", "Home")</h1>
+﻿<div class="text-center site-header">
+    @*<h1 class="text-center">@Html.RouteLink(mw.App_Code.Config.SiteName, "Home")</h1>*@
+    <a href="/">
+        Mark
+        <span id="last">Wetzel</span>
+    </a>
 
-<ul>
-    <li>@Html.RouteLink("Projects", "Projects")</li>
-    <li>@Html.RouteLink("About", "About")</li>
-    <li>@Html.RouteLink("Contact", "Contact")</li>
-</ul>
+    <h2 id="slogan">
+        Me in a nutshell
+    </h2>
+</div>
+
+<nav>
+    <ul>
+        <li>@Html.RouteLink("Projects", "Projects")</li>
+        <li>@Html.RouteLink("About", "About")</li>
+        <li>@Html.RouteLink("Contact", "Contact")</li>
+    </ul>
+</nav>

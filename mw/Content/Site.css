@@ -3,10 +3,66 @@
 }
 
 input[type="submit"] {
-    margin-top:15px;
+    margin-top: 15px;
 }
 
-.field-validation-error { 
-    color:red;display:block;
-    margin:6px 0;
+.field-validation-error {
+    color: red;
+    display: block;
+    margin: 6px 0;
+}
+
+.site-header {
+    background-color: #fff;
+    padding-bottom: 0;
+    font-size: 6em;
+    font-family: "Coustard",Georgia,serif;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+    .site-header a {
+        color: #333;
+        border-bottom: 1px dotted #ccc;
+    }
+
+        .site-header a:hover {
+            text-decoration: none;
+        }
+
+    .site-header #last {
+        color: #668F23;
+    }
+
+
+
+nav {
+}
+
+    nav ul {
+        border-top: 1px dotted #ccc;
+        border-bottom: 1px dotted #ccc;
+        padding: 18px;
+        text-align: center;
+    }
+
+    nav li {
+        display: inline;
+        padding: 0 15px;
+    }
+
+        nav li a {
+            color: #333;
+            font-family: "Coustard",Georgia,serif;
+        }
+
+            nav li a:hover {
+                color: #333;
+                text-decoration: underline;
+            }
+
+.site-header #slogan {
+    font-size: .2em;
+    text-align: center;
+    margin:10px 0;
 }
