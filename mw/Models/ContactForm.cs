@@ -8,11 +8,11 @@ namespace mw.Models
 {
     public class ContactForm
     {
-        [Required, Display(Name="Your name")]
+        [Required, Display(Name="Name")]
         public string Name { get; set; }
-        [Required, EmailAddress, Display(Name="Your email")]
+        [Required, EmailAddress, Display(Name="Email")]
         public string Email { get; set; }
-        [Required, Display(Name="Message")]
+        [Required, Display(Name="Message"), DataType(DataType.MultilineText)]
         public string Message { get; set; }
     }
 }
