@@ -1,0 +1,27 @@
+﻿@model mw.Models.ContactForm
+
+
+@{
+    ViewBag.Title = "Contact me";
+}
+
+<h1>Contact me</h1>
+
+@using (Html.BeginForm("SendMessage", "Contact", FormMethod.Post))
+{
+    
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary()
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+
+    @Html.LabelFor(m => m.Message)
+    @Html.TextBoxFor(m => m.Message)
+
+    <input type="submit" value="Send" />
+}

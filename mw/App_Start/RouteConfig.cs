@@ -29,7 +29,7 @@ namespace mw
             routes.MapRoute(
                 name: "Contact",
                 url: "contact",
-                defaults: new { controller = "Home", action = "Contact" }
+                defaults: new { controller = "Contact", action = "Index" }
             );
 
             routes.MapRoute(
