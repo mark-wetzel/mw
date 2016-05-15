@@ -18,7 +18,7 @@ namespace mw.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> SendMessage(ContactForm model)
+        public async Task<ActionResult> Index(ContactForm model)
         {
             if (ModelState.IsValid)
             {
@@ -41,13 +41,18 @@ namespace mw.Controllers
                     smtp.Credentials = credential;
                     smtp.Host = ConfigurationSettings.AppSettings["Host"];
                     smtp.Port = Convert.ToInt32(ConfigurationSettings.AppSettings["Port"]);
-                    smtp.EnableSsl = true;
+                    smtp.EnableSsl = Convert.ToBoolean(ConfigurationSettings.AppSettings["EnableSSL"]);
                     await smtp.SendMailAsync(message);
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Sent");
                 }
             }
 
             return View("Index", model);
+        }
+
+        public ActionResult Sent()
+        {
+            return View();
         }
     }
 }
