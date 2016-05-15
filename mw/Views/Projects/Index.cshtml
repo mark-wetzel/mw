@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<mw.Models.Project>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Projects";
 }
 
 <div class="row">
     <div class="col-md-8 col-lg-offset-2">
 
-        <h2>Projects</h2>
+        <h2>@ViewBag.Title</h2>
 
         @foreach (var project in Model)
         {

@@ -1,0 +1,12 @@
+﻿@model mw.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@Model.Name
+@Model.Description
+
+@Html.ActionLink("Edit this", "Edit", new { id = Model.Id })
