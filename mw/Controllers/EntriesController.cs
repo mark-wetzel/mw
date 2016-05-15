@@ -14,7 +14,6 @@ namespace mw.Controllers
     {
         private EntryContext db = new EntryContext();
 
-        // GET: Entries
         public ActionResult Index()
         {
             return View(db.Entries.ToList());

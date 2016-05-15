@@ -35,7 +35,7 @@ namespace mw
             routes.MapRoute(
                 name: "Projects",
                 url: "projects",
-                defaults: new { controller = "Home", action = "Projects" }
+                defaults: new { controller = "Projects", action = "Index" }
             );
 
             routes.MapRoute(
