@@ -2,4 +2,20 @@
     ViewBag.Title = "About";
 }
 
-<p>The about page</p>
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <h2>@ViewBag.Title</h2>
+
+        <p class="lead">My name's Mark and I'm a web developer, technology enthusiast, motorcyclist, explorer and consumer of fine coffee.</p>
+
+        <p>I live in Boulder, Colorado and am addicted to the idea of a beautiful and functional web.</p>
+
+        <p>In my free time I enjoy riding my motorcycle, consuming ample amounts of caffeine, lifting weights, reading about new technologies and exploring my city - whether on foot, by bike or car.</p>
+
+        <p>Do you have questions, comments or even want to hire me?</p>
+
+        @Html.RouteLink("Contact me!", "Contact")
+
+        <img src="~/Content/Images/me_thumb.jpg" alt="Me" />
+    </div>
+</div>
