@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace mw.ViewModels
+﻿namespace mw.ViewModels
 {
     public class EditEntryViewModel
     {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using mw.Models;
 using mw.ViewModels;
@@ -20,98 +17,76 @@ namespace mw.Controllers
             return View(db.Entries.ToList());
         }
 
-        // GET: Entries/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Entry entry = db.Entries.Find(id);
-            if (entry == null)
-            {
+            if (entry == null) {
                 return HttpNotFound();
             }
             return View(entry);
         }
 
-        // GET: Entries/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Entries/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateEntryViewModel entry)
+        public ActionResult Create(CreateEntryViewModel createEntryViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                var e = new Entry { Body = entry.Body, Title = entry.Title };
-                db.Entries.Add(e);
+            if (ModelState.IsValid) {
+                var entry = new Entry { Body = createEntryViewModel.Body, Title = createEntryViewModel.Title };
+                db.Entries.Add(entry);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(entry);
+            return View(createEntryViewModel);
         }
 
-        // GET: Entries/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Entry entry = db.Entries.Find(id);
-            if (entry == null)
-            {
+            if (entry == null) {
                 return HttpNotFound();
             }
             return View(entry);
         }
 
-        // POST: Entries/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditEntryViewModel entry)
+        public ActionResult Edit(EditEntryViewModel editEntryViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                var e = db.Entries.Where(x => x.Id == entry.Id ).FirstOrDefault();
-                e.Body = entry.Body;
-                e.Title = entry.Title;
-
-                db.Entry(e).State = EntityState.Modified;
-                
+            if (ModelState.IsValid) {
+                var entry = db.Entries.Where(x => x.Id == editEntryViewModel.Id).FirstOrDefault();
+                entry.Body = editEntryViewModel.Body;
+                entry.Title = editEntryViewModel.Title;
+                db.Entry(entry).State = EntityState.Modified;
                 db.SaveChanges();
-                
                 return RedirectToAction("Index");
             }
-            return View(entry);
+            return View(editEntryViewModel);
         }
 
-        // GET: Entries/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Entry entry = db.Entries.Find(id);
-            if (entry == null)
-            {
+            if (entry == null) {
                 return HttpNotFound();
             }
             return View(entry);
         }
 
-        // POST: Entries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -124,8 +99,7 @@ namespace mw.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);
