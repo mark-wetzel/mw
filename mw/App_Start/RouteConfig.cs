@@ -15,9 +15,9 @@ namespace mw
             routes.LowercaseUrls = true;
 
             routes.MapRoute(
-            name: "Home",
-            url: "",
-            defaults: new { controller = "Entries", action = "Index" }
+                name: "Home",
+                url: "{page}",
+                defaults: new { controller = "Entries", action = "Index" }
             );
 
             routes.MapRoute(

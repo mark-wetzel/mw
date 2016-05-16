@@ -30,7 +30,7 @@ namespace mw.Migrations
 
             for (int i = 0; i < 150; i++)
             {
-                context.Entries.Add(new Models.Entry { Title = "This is a sample title", Body = "This is a sample body!" });
+                context.Entries.Add(new Models.Entry { Title = i + " This is a sample title", Body = "This is a sample body!" });
             }
         }
     }

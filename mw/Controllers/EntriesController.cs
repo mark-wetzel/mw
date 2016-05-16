@@ -12,9 +12,9 @@ namespace mw.Controllers
     {
         private EntryContext db = new EntryContext();
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            return View(db.Entries.OrderByDescending(e => e.DateCreated));
+            return View(db.Entries.ToList().OrderBy(e => e.DateCreated).Reverse().Skip((page - 1) * 10).Take(10));
         }
 
         public ActionResult Details(int? id)
