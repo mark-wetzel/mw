@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace mw.Models
 {
     public class BaseEntity
     {
-        [Column(TypeName = "datetime2")]
         public DateTime? DateCreated { get; set; }
-        [Column(TypeName = "datetime2")]
         public DateTime? DateModified { get; set; }
     }
 
@@ -33,12 +28,10 @@ namespace mw.Models
         {
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
 
-            foreach (var entity in entities)
-            {
+            foreach (var entity in entities) {
                 var e = (BaseEntity)entity.Entity;
 
-                if (entity.State == EntityState.Added)
-                {
+                if (entity.State == EntityState.Added) {
                     e.DateCreated = DateTime.Now;
                 }
 

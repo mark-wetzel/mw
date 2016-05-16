@@ -14,7 +14,7 @@ namespace mw.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Entries.ToList());
+            return View(db.Entries.OrderByDescending(e => e.DateCreated));
         }
 
         public ActionResult Details(int? id)
