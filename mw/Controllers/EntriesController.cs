@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using mw.Models;
+using mw.ViewModels;
 
 namespace mw.Controllers
 {
@@ -45,11 +46,12 @@ namespace mw.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Body")] Entry entry)
+        public ActionResult Create(CreateEntryViewModel entry)
         {
             if (ModelState.IsValid)
             {
-                db.Entries.Add(entry);
+                var e = new Entry { Body = entry.Body, Title = entry.Title };
+                db.Entries.Add(e);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -77,12 +79,18 @@ namespace mw.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body")] Entry entry)
+        public ActionResult Edit(EditEntryViewModel entry)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(entry).State = EntityState.Modified;
+                var e = db.Entries.Where(x => x.Id == entry.Id ).FirstOrDefault();
+                e.Body = entry.Body;
+                e.Title = entry.Title;
+
+                db.Entry(e).State = EntityState.Modified;
+                
                 db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             return View(entry);
