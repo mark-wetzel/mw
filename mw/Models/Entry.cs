@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace mw.Models
 {
@@ -16,7 +17,7 @@ namespace mw.Models
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required]
+        [Required, DataType(DataType.MultilineText)]
         public string Body { get; set; }
     }
 
