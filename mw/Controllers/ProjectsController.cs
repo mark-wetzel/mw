@@ -9,10 +9,12 @@ using System.Web.Mvc;
 
 namespace mw.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProjectsController : Controller
     {
         private ProjectContext db = new ProjectContext();
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Projects.ToList());
@@ -27,8 +29,7 @@ namespace mw.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description")] Project project)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 db.Projects.Add(project);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -37,17 +38,16 @@ namespace mw.Controllers
             return View(project);
         }
 
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var project = db.Projects.Find(id);
 
-            if (project == null)
-            {
+            if (project == null) {
                 return HttpNotFound();
             }
 
@@ -56,15 +56,13 @@ namespace mw.Controllers
 
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var project = db.Projects.Find(id);
 
-            if (project == null)
-            {
+            if (project == null) {
                 return HttpNotFound();
             }
 
@@ -75,8 +73,7 @@ namespace mw.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Description")]Project project)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,15 +83,13 @@ namespace mw.Controllers
 
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             var project = db.Projects.Find(id);
 
-            if (project == null)
-            {
+            if (project == null) {
                 return HttpNotFound();
             }
 

@@ -8,15 +8,18 @@ using mw.ViewModels;
 
 namespace mw.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EntriesController : Controller
     {
         private EntryContext db = new EntryContext();
-
+        
+        [AllowAnonymous]
         public ActionResult Index(int page = 1)
         {
             return View(db.Entries.ToList().OrderBy(e => e.DateCreated).Reverse().Skip((page - 1) * 10).Take(10));
         }
 
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null) {

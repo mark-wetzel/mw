@@ -395,6 +395,13 @@ namespace mw.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [ActionName("LogOff")]
+        public ActionResult LogOffGet()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Entries");
+        }
+
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
