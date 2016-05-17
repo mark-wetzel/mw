@@ -5,15 +5,15 @@
     </a>
 
     <h2 id="slogan">
-        Me in a nutshell
+        The occasional musings of...me
     </h2>
 </div>
 
 <nav>
     <ul>
-        <li>@Html.RouteLink("Blog", "Home")</li>
-        <li>@Html.RouteLink("Projects", "Projects")</li>
-        <li>@Html.RouteLink("About", "About")</li>
-        <li>@Html.RouteLink("Contact", "Contact")</li>
+        <li>@Html.RouteLink("Blog", "Home", null, new { @class = ViewContext.RouteData.Values["Action"].ToString() == "Index" && ViewContext.RouteData.Values["Controller"].ToString() == "Entries" ? "active" : "" })</li>
+        <li>@Html.RouteLink("Projects", "Projects", null, new { @class = ViewContext.RouteData.Values["Action"].ToString() == "Index" && ViewContext.RouteData.Values["Controller"].ToString() == "Projects" ? "active" : "" })</li>
+        <li>@Html.RouteLink("About", "About", null, new { @class = ViewContext.RouteData.Values["Action"].ToString() == "About" && ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "" })</li>
+        <li>@Html.RouteLink("Contact", "Contact", null, new { @class = ViewContext.RouteData.Values["Action"].ToString() == "Index" && ViewContext.RouteData.Values["Controller"].ToString() == "Contact" ? "active" : "" })</li>
     </ul>
 </nav>

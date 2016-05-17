@@ -1,15 +1,25 @@
 ﻿@using mw.App_Code
 
-    @helper PageTitle(string pageTitle)
-    {
+@helper PageTitle(string pageTitle)
+{
 string siteName = Config.SiteName;
 
-if (string.IsNullOrEmpty(pageTitle))
-{
+if (string.IsNullOrEmpty(pageTitle)) {
         @siteName
-}
-else
-{
+} else {
         <text>@pageTitle | @siteName</text>
+}
+}
+
+@helper WrittenAt(mw.Models.Entry entry)
+{
+bool showEdited = false;
+
+var written = entry.DateCreated.Value.ToString("MMM d, yyyy");
+var edited = entry.DateModified.Value.ToString("MMM d, yyyy");
+if (entry.IsEdited && showEdited) {
+        <text>Posted on @written <span class="entry-date">Edited @edited</span></text>
+} else {
+        <text>Posted on <span class="entry-date">@written</span></text>
 }
 }

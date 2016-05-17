@@ -8,8 +8,7 @@
     <div class="col-md-8 col-md-offset-2">
         <h2>@ViewBag.Title</h2>
 
-        @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
-        {
+        @using (Html.BeginForm("Index", "Contact", FormMethod.Post)) {
 
             @Html.AntiForgeryToken()
 

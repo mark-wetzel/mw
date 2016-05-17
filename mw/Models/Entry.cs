@@ -19,6 +19,11 @@ namespace mw.Models
         public string Title { get; set; }
         [Required, DataType(DataType.MultilineText)]
         public string Body { get; set; }
+
+        public bool IsEdited
+        {
+            get { return DateCreated != DateModified;  }
+        }
     }
 
     public class EntryContext : DbContext

@@ -15,10 +15,10 @@ input[type="submit"] {
 .site-header {
     background-color: #fff;
     padding-bottom: 0;
-    font-size: 6em;
+    font-size: 5.5em;
     font-family: "Coustard",Georgia,serif;
     margin-bottom: 0;
-    padding-top: 0;
+    padding-top: 50px;
 }
 
     .site-header a {
@@ -61,8 +61,50 @@ nav {
                 text-decoration: underline;
             }
 
+            nav li a.active { 
+                color:#668F23;
+            }
+
 .site-header #slogan {
-    font-size: .2em;
+    font-size: .18em;
     text-align: center;
-    margin:10px 0;
+    margin: 25px 0;
+    font-family: "Coustard",Georgia,serif;
+}
+
+article {
+}
+
+    article div.content {
+        padding: 30px;
+    }
+
+    article h1 {
+        font-family: "Coustard",Georgia,serif;
+    }
+
+        article h1 a {
+            color: #333;
+        }
+
+            article h1 a:hover {
+                background-color: #eee;
+                text-decoration: none;
+            }
+
+    article footer {
+        color: #aaa;
+        margin:30px 0;
+    }
+
+        article footer .entry-date {
+            border-bottom: 1px dotted #aaa;
+            color: #333;
+        }
+
+h2#page-title {
+    font-family: "Coustard",Georgia,serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 40px 0;
 }

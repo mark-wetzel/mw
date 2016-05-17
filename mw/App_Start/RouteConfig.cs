@@ -16,7 +16,7 @@ namespace mw
 
             routes.MapRoute(
                 name: "Home",
-                url: "{page}",
+                url: "",
                 defaults: new { controller = "Entries", action = "Index" }
             );
 
