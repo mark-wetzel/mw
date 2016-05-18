@@ -106,5 +106,13 @@ h2#page-title {
     font-family: "Coustard",Georgia,serif;
     font-size: 1.2em;
     text-transform: uppercase;
+    text-align:center;
     margin: 40px 0;
+}
+
+div#projects-index { 
+}
+
+div#projects-index .thumbnail { 
+    margin:10px;
 }

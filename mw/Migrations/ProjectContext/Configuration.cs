@@ -14,20 +14,17 @@ namespace mw.Migrations.ProjectContext
             ContextKey = "mw.Models.ProjectContext";
         }
 
-        protected override void Seed(mw.Models.ProjectContext context)
+        protected override void Seed(Models.ProjectContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            for (int i = 0; i < 10; i++) {
+                var project = new Models.Project
+                {
+                    Name = "Sample",
+                    Description = "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
+                };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+                context.Projects.Add(project);
+            }
         }
     }
 }
