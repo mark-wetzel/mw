@@ -116,3 +116,11 @@ div#projects-index {
 div#projects-index .thumbnail { 
     margin:10px;
 }
+
+div#about { 
+
+}
+
+div#about img { 
+    float:right;
+}

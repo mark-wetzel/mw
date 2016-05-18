@@ -2,9 +2,11 @@
     ViewBag.Title = "About";
 }
 
-<div class="row">
+<div class="row" id="about">
     <div class="col-md-offset-2 col-md-8">
-        <h2>@ViewBag.Title</h2>
+        <h2 id="page-title">@ViewBag.Title</h2>
+
+        <img src="~/Content/Images/me_thumb.jpg" alt="Me" />
 
         <p class="lead">My name's Mark and I'm a web developer, technology enthusiast, motorcyclist, explorer and consumer of fine coffee.</p>
 
@@ -14,8 +16,9 @@
 
         <p>Do you have questions, comments or even want to hire me?</p>
 
-        @Html.RouteLink("Contact me!", "Contact")
+        @Html.RouteLink("Contact me!", "Contact", null,  new { @class = "btn btn-primary" })
 
-        <img src="~/Content/Images/me_thumb.jpg" alt="Me" />
+        <br />
+        
     </div>
 </div>
