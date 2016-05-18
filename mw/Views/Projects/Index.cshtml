@@ -9,12 +9,11 @@
 
         <h2 id="page-title">@ViewBag.Title</h2>
 
-
         <div class="row" id="projects-index">
             @foreach (var project in Model) {
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="~/Content/Images/index.svg" />
+                        <img src="~/Content/Images/index.svg" alt="@project.Name" title="@project.Name" />
                     </div>
                 </div>
             }
