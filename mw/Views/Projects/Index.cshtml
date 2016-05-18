@@ -13,12 +13,12 @@
             @foreach (var project in Model) {
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <a href="@Url.Action("Details", "Projects", new {  id = @project.Id})">
-                            <img src="@Url.Content("~/Content/Images/index.svg")" />
+                        <a href="@Url.Action("Details", "Projects", new {  id = @project.Id})" title="@project.Name">
+                            <img src="@Url.Content("~/Content/Images/index.svg")" alt="@project.Name"  />
                         </a>
                     </div>
                 </div>
-            }
+                }
+            </div>
         </div>
     </div>
-</div>
