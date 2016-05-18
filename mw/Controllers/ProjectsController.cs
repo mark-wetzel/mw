@@ -1,4 +1,5 @@
 ﻿using mw.Models;
+using mw.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -27,15 +28,21 @@ namespace mw.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description")] Project project)
+        public ActionResult Create(CreateProjectViewModel createProjectViewModel)
         {
             if (ModelState.IsValid) {
+                var project = new Project
+                {
+                    Description = createProjectViewModel.Description,
+                    Name = createProjectViewModel.Name
+                };
+
                 db.Projects.Add(project);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(project);
+            return View(createProjectViewModel);
         }
 
         [AllowAnonymous]
@@ -71,14 +78,17 @@ namespace mw.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description")]Project project)
+        public ActionResult Edit(EditProjectViewModel editProjectViewModel)
         {
             if (ModelState.IsValid) {
+                var project = db.Projects.Where(p => p.Id == editProjectViewModel.Id).FirstOrDefault();
+                project.Description = editProjectViewModel.Description;
+                project.Name = editProjectViewModel.Name;
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(project);
+            return View(editProjectViewModel);
         }
 
         public ActionResult Delete(int? id)
