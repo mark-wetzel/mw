@@ -124,3 +124,11 @@ div#about {
 div#about img { 
     float:right;
 }
+
+#site-footer { 
+    text-align:center;
+}
+
+#site-footer a { 
+    color:#668F23;
+}
