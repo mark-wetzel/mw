@@ -2,23 +2,18 @@
     ViewBag.Title = "About";
 }
 
-<div class="row" id="about">
-    <div class="col-md-offset-2 col-md-8">
-        <h2 id="page-title">@ViewBag.Title</h2>
+<h2 id="page-title">@ViewBag.Title</h2>
 
-        <img src="~/Content/Images/me_thumb.jpg" alt="Me" />
+<img src="~/Content/Images/me_thumb.jpg" alt="Me" />
 
-        <p class="lead">My name's Mark and I'm a web developer, technology enthusiast, motorcyclist, explorer and consumer of fine coffee.</p>
+<p class="lead">My name's Mark and I'm a web developer, technology enthusiast, motorcyclist, explorer and consumer of fine coffee.</p>
 
-        <p>I live in Boulder, Colorado and am addicted to the idea of a beautiful and functional web.</p>
+<p>I live in Boulder, Colorado and am addicted to the idea of a beautiful and functional web.</p>
 
-        <p>In my free time I enjoy riding my motorcycle, consuming ample amounts of caffeine, lifting weights, reading about new technologies and exploring my city - whether on foot, by bike or car.</p>
+<p>In my free time I enjoy riding my motorcycle, consuming ample amounts of caffeine, lifting weights, reading about new technologies and exploring my city - whether on foot, by bike or car.</p>
 
-        <p>Do you have questions, comments or even want to hire me?</p>
+<p>Do you have questions, comments or even want to hire me?</p>
 
-        @Html.RouteLink("Contact me!", "Contact", null,  new { @class = "btn btn-primary" })
+@Html.RouteLink("Contact me!", "Contact", null, new { @class = "btn btn-primary" })
 
-        <br />
-        
-    </div>
-</div>
+<br />

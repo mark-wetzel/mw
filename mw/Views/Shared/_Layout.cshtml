@@ -21,7 +21,11 @@
     <div class="container body-content">
         @Html.Partial("_Header")
 
-        @RenderBody()
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @RenderBody()
+            </div>
+        </div>
 
         @Html.Partial("_Footer")
     </div>

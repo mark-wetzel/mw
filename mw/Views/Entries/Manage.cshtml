@@ -3,19 +3,14 @@
 @{
     ViewBag.Title = "Manage entries";
 }
-
-<div class="row">
-    <div class="col-md-offset-2 col-md-8">
-        <h2 id="page-title">Manage entries</h2>
-        <table class="table">
-            @foreach (var entry in Model) {
-                <tr>
-                    <td>@Html.ActionLink(@entry.Title, "Edit", new { id = entry.Id })</td>
-                    <td>@entry.Body.Substring(0, 30)</td>
-                    <td>@entry.DateCreated</td>
-                    <td>@entry.DateModified</td>
-                </tr>
-            }
-        </table>
-    </div>
-</div>
+<h2 id="page-title">Manage entries</h2>
+<table class="table">
+    @foreach (var entry in Model) {
+        <tr>
+            <td>@Html.ActionLink(@entry.Title, "Edit", new { id = entry.Id })</td>
+            <td>@entry.Body.Substring(0, 30)</td>
+            <td>@entry.DateCreated</td>
+            <td>@entry.DateModified</td>
+        </tr>
+    }
+</table>
