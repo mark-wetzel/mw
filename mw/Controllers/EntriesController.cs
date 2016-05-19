@@ -100,6 +100,13 @@ namespace mw.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Manage()
+        {
+            var entries = db.Entries;
+
+            return View(entries);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing) {
