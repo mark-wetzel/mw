@@ -1,0 +1,18 @@
+﻿@model IEnumerable<mw.Models.Project>
+
+@{
+    ViewBag.Title = "Manage";
+}
+
+<h2>Manage</h2>
+
+<table class="table">
+    @foreach (var project in Model) {
+        <tr>
+            <td>@project.Name</td>
+            <td>@project.Description</td>
+            <td>@project.DateCreated</td>
+            <td>@project.DateModified</td>
+        </tr>
+    }
+</table>

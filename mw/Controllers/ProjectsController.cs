@@ -115,5 +115,11 @@ namespace mw.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Manage()
+        {
+            var projects = db.Projects;
+            return View(projects);
+        }
     }
 }
