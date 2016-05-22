@@ -18,7 +18,7 @@ namespace mw.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            return View(db.Projects);
         }
 
         public ActionResult Create()
@@ -34,8 +34,18 @@ namespace mw.Controllers
                 var project = new Project
                 {
                     Description = createProjectViewModel.Description,
-                    Name = createProjectViewModel.Name
+                    Name = createProjectViewModel.Name,
+                    ProjectImage = createProjectViewModel.Image
                 };
+
+                if (project.ProjectImage != null) {
+                    string image = System.IO.Path.GetFileName(project.ProjectImage.FileName);
+                    System.IO.Directory.CreateDirectory(Server.MapPath(string.Format("~/Content/Images/Projects/{0}/", project.Name)));
+                    string path = System.IO.Path.Combine(Server.MapPath(string.Format("~/Content/Images/Projects/{0}/", project.Name)), image);
+                    project.ProjectImage.SaveAs(path);
+                    project.Image = new Image { ImagePath = path };
+                    db.Images.Add(project.Image);
+                }
 
                 db.Projects.Add(project);
                 db.SaveChanges();
