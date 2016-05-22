@@ -8,6 +8,8 @@
 
 @Model.Name
 @Model.Description
-<img src="@Model.Image.ImagePath" alt="oops"/>
+<img src="@Url.Content(Model.Image.RelativePath)" alt="oops"/>
+
+@*@Html.ActionLink("Delete")*@
 
 @Html.ActionLink("Edit this", "Edit", new { id = Model.Id })

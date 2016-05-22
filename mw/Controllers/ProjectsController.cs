@@ -3,6 +3,7 @@ using mw.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -42,8 +43,9 @@ namespace mw.Controllers
                     string image = System.IO.Path.GetFileName(project.ProjectImage.FileName);
                     System.IO.Directory.CreateDirectory(Server.MapPath(string.Format("~/Content/Images/Projects/{0}/", project.Name)));
                     string path = System.IO.Path.Combine(Server.MapPath(string.Format("~/Content/Images/Projects/{0}/", project.Name)), image);
+                    string relPath = System.IO.Path.Combine(string.Format("~/Content/Images/Projects/{0}/", project.Name), image);
                     project.ProjectImage.SaveAs(path);
-                    project.Image = new Image { ImagePath = path };
+                    project.Image = new Image { PhysicalPath = path, RelativePath = relPath };
                     db.Images.Add(project.Image);
                 }
 
@@ -121,8 +123,16 @@ namespace mw.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Project project = db.Projects.Find(id);
+
+
+            if (project.Image != null) {
+                Directory.Delete(Path.GetDirectoryName(project.Image.PhysicalPath), true);
+            }
+
+            db.Images.Remove(project.Image);
             db.Projects.Remove(project);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
