@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -14,11 +15,16 @@ namespace mw.Models
         public string Name { get; set; }
         [Required, DataType(DataType.MultilineText)]
         public string Description { get; set; }
+
+        public virtual Image Image { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ProjectImage { get; set; }
     }
 
     public class ProjectContext : DbContext
     {
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         public override int SaveChanges()
         {

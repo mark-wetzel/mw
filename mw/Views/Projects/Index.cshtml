@@ -5,6 +5,7 @@
     ViewBag.Title = "Projects";
 }
 
+<<<<<<< HEAD
 <h2 id="page-title">@ViewBag.Title</h2>
 
 <div class="row" id="projects-index">
@@ -14,3 +15,21 @@
         </div>
     }
 </div>
+=======
+
+<h2 id="page-title">@ViewBag.Title</h2>
+
+<div id="projects-index">
+    @foreach (var project in Model) {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "Projects", new {  id = @project.Id})" title="@project.Name">
+                    <img src="@Url.Content("~/Content/Images/index.svg")" alt="@project.Name" />
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+@Html.ActionLink("Create new project", "Create")
+>>>>>>> projects

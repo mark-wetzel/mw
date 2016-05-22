@@ -7,7 +7,11 @@
 <h2 id="page-title">Latest Posts</h2>
 
 @foreach (var entry in Model) {
+<<<<<<< HEAD
     <article class="entry-index">
+=======
+    <article>
+>>>>>>> projects
         <header>
             <h1>@Html.ActionLink(entry.Title, "Details", new { id = entry.Id })</h1>
         </header>

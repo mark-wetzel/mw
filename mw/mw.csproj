@@ -189,7 +189,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Extensions\HtmlHelpers.cs" />
+=======
+    <Compile Include="Models\Image.cs" />
+>>>>>>> projects
     <Compile Include="ViewModels\CreateEntryViewModel.cs" />
     <Compile Include="ViewModels\CreateProjectViewModel.cs" />
     <Compile Include="ViewModels\EditEntryViewModel.cs" />
@@ -304,6 +308,11 @@
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Entries\Manage.cshtml" />
     <Content Include="Views\Projects\Manage.cshtml" />
+    <Content Include="Views\Images\Create.cshtml" />
+    <Content Include="Views\Images\Delete.cshtml" />
+    <Content Include="Views\Images\Details.cshtml" />
+    <Content Include="Views\Images\Edit.cshtml" />
+    <Content Include="Views\Images\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
