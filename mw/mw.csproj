@@ -189,11 +189,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Compile Include="Extensions\HtmlHelpers.cs" />
-=======
     <Compile Include="Models\Image.cs" />
->>>>>>> projects
     <Compile Include="ViewModels\CreateEntryViewModel.cs" />
     <Compile Include="ViewModels\CreateProjectViewModel.cs" />
     <Compile Include="ViewModels\EditEntryViewModel.cs" />
