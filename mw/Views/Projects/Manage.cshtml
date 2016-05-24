@@ -8,7 +8,7 @@
 <table class="table">
     @foreach (var project in Model) {
         <tr>
-            <td>@project.Name</td>
+            <td>@Html.ActionLink(project.Name, "Edit", new { id = project.Id })</td>
             <td>@project.Description</td>
             <td>@project.DateCreated</td>
             <td>@project.DateModified</td>
