@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Helpers;
 
 namespace mw.Controllers
 {
@@ -47,6 +48,10 @@ namespace mw.Controllers
                     project.ProjectImage.SaveAs(path);
                     project.Image = new Image { PhysicalPath = path, RelativePath = relPath };
                     db.Images.Add(project.Image);
+
+                    WebImage img = new WebImage(path);
+                    img.Resize(400, 400, true, true);
+                    img.Save("copy.jpg");
                 }
 
                 db.Projects.Add(project);
